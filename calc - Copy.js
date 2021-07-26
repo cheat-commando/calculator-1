@@ -6,9 +6,7 @@ const reader = readline.createInterface({
   output: process.stdout,
 });
 
-
-
-reader.question("What would you like to calculate?\nType an operator and two numbers, separated by spaces.\nType + for addition\nType - for subtraction\nType * for multiplication\nType / for division\nType % for modulo operator\nType ^ or ** to raise to a power\nType sqrt for square root (You only need one number for this)\nType cube to find the cube of a number (You only need one number for this)\n", function(input){
+reader.question("What would you like to calculate?\nType an operator and two numbers, separated by spaces.\nType  +  for addition\nType  -  for subtraction\nType  *  for multiplication\nType  /  for division\nType  %  for modulo operator\nType  ^  or  **  to raise to a power\nType  sqrt  for square root (You only need one number for this)\nType  square  to find the square of a number (You only need one number for this)\nType  cube  to find the cube of a number (You only need one number for this)\n", function(input){
 	tokens = input.split(' ');
 	
 	mathSymbol = tokens[0];
@@ -33,6 +31,8 @@ reader.question("What would you like to calculate?\nType an operator and two num
 		result = Math.sqrt(num1)
 	} else if (mathSymbol === "cube") {
 		result = num1 ** 3
+	} else if (mathSymbol === "square") {
+		result = num1 ** 2
 	} else {
 		result = NaN
 	}
