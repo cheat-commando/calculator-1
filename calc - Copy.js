@@ -8,7 +8,7 @@ const reader = readline.createInterface({
 
 
 
-reader.question("What would you like to calculate? ", function(input){
+reader.question("What would you like to calculate?\nType an operator and two numbers, separated by spaces.\nType + for addition\nType - for subtraction\nType * for multiplication\nType / for division\nType % for modulo operator\nType ^ or ** to raise to a power\nType sqrt for square root (You only need one number for this)\nType cube to find the cube of a number (You only need one number for this)\n", function(input){
 	tokens = input.split(' ');
 	
 	mathSymbol = tokens[0];
@@ -25,7 +25,7 @@ reader.question("What would you like to calculate? ", function(input){
 		result = num1 * num2
 	} else if (mathSymbol === "/") {
 		result = num1 / num2
-	} else if (mathSymbol === "^" or mathSymbol === "**") {
+	} else if (mathSymbol === "^" || mathSymbol === "**") {
 		result = num1 ** num2
 	} else if (mathSymbol == "%") {
 		result = num1 % num2
@@ -37,7 +37,13 @@ reader.question("What would you like to calculate? ", function(input){
 		result = NaN
 	}
 
-	console.log(`${num1} ${mathSymbol} ${num2} = ${result}`)
+	num2Dead = ` ${num2} `
+
+	if (isNaN(num2)) {
+		num2Dead = ` `
+	}
+
+	console.log(`${num1} ${mathSymbol}${num2Dead}= ${result}`)
 	console.log(`The answer is: ${result}.`)
 -
 	// This line closes the connection to the command line interface.
